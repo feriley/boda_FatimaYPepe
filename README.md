@@ -87,7 +87,7 @@ Crear .env en frontend:
 env
 VITE_API_URL=https://api-web-boda.onrender.com
 📱 Uso
-Los invitados acceden a: https://web-boda-xi.vercel.app
+Los invitados acceden a: https://boda-fatima-y-pepe.vercel.app/
 
 Completan el formulario (4 pasos)
 
