@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+
+
+.petal {
+  will-change: transform, opacity;
+  pointer-events: none;
+}
+
+/* Transición de anillo */
+.wedding-ring-transition {
+  position: fixed;
+  inset: 0;
+  background: white;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Animación de corazones */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.heart {
+  animation: float 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+.petal, .heart {
+  will-change: transform, opacity;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Optimización de rendimiento */
+html {
+  transform: translateZ(0);
+}
