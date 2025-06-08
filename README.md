@@ -1,129 +1,88 @@
-💍 Web Boda Fátima & Pepe - DAW 2024
-Fernando Iglesias Leyva
+# 💍 Web Boda Fátima & Pepe 
 
-📑 Índice
+![Banner de proyecto](https://via.placeholder.com/1200x400/3d004d/ffffff?text=Elegante+Web+Boda) <!-- Agregar banner real -->
 
-1.Introducción
+> Plataforma interactiva para la gestión de invitados en la boda de Fátima y Pepe
 
-2.Funcionalidades
+[![Vercel Deployment](https://img.shields.io/badge/Vercel-Deployed-black?logo=vercel)](https://boda-fatima-y-pepe.vercel.app/)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.0-green?logo=spring)](https://spring.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-3.Tecnologías
+## 📚 Índice interactivo
+1. [✨ Introducción](#-introducción)
+2. [🚀 Funcionalidades](#-funcionalidades)
+3. [🛠 Tecnologías](#-tecnologías)
+4. [⚙️ Instalación](#️-instalación)
+5. [📱 Uso](#-uso)
+6. [📊 Documentación](#-documentación)
+7. [🎨 Diseño en Figma](#-diseño-en-figma)
+8. [✅ Conclusión](#-conclusión)
+9. [📜 Licencia](#-licencia)
+10. [📧 Contacto](#-contacto)
 
-4.Instalación
+---
 
-5.Uso
+## ✨ Introducción
+Proyecto especial creado como regalo de boda para mi hermana. Plataforma digital que permite a los invitados:
 
-6.Documentación
+![Confirmación asistencia](https://via.placeholder.com/400x200/3d004d/ffffff?text=Proceso+4+pasos) <!-- Agregar captura real -->
 
-7.Figma
+- ✅ Confirmar asistencia
+- 🍽️ Indicar restricciones alimenticias
+- 🎵 Sugerir canciones
+- 📅 Consultar detalles del evento
 
-8.Conclusión
+**Objetivos cumplidos:**
+| Meta | Estado |
+|------|--------|
+| Diseño responsive | ✅ |
+| Almacenamiento en MongoDB | ✅ |
+| Despliegue profesional | ✅ |
+| UX optimizado | ✅ |
 
-9.Licencia
+---
 
-10.Contacto
+## 🚀 Funcionalidades
+### Flujo de confirmación (4 pasos)
+1. Identificación de invitado 🔍
+2. Confirmación asistencia ✅
+3. Detalles alimenticios 🥗
+4. Sugerencias musicales 🎶
 
-🌟 1.Introducción
-Proyecto: Página web interactiva para la boda de Fátima y Pepe, con sistema de confirmación de asistencia.
+### Secciones clave
+- **📅 Cuenta regresiva interactiva** 
+- **📍 Mapa de ubicaciones**
+- **📬 Contacto directo con novios**
+- **👤 Admin Dashboard** (en desarrollo)
 
-Motivación: Crear un regalo digital especial para mi hermana, permitiendo a los invitados:
+![Vista previa secciones](https://via.placeholder.com/600x300/3d004d/ffffff?text=Secciones+Web) <!-- Agregar collage de pantallas -->
 
-Confirmar asistencia
+---
 
-Indicar restricciones alimenticias
+## 🛠 Tecnologías
+### Frontend
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-B73BFE?logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css)
 
-Sugerir canciones
+### Backend
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-6DB33F?logo=springboot)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?logo=mongodb)
 
-Consultar detalles del evento
+### Despliegue
+![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel)
+![Render](https://img.shields.io/badge/Render-46E3B7?logo=render)
 
-Objetivos:
-✅ Diseño elegante y responsive
-✅ Formulario funcional con almacenamiento en MongoDB
-✅ Despliegue profesional en Vercel + Render
-✅ Experiencia UX optimizada
+---
 
-✨ 2.Funcionalidades
-Confirmación de asistencia en 4 pasos
-
-Info detallada de ceremonia y celebración
-
-Cuenta atrás interactiva
-
-Sección de contacto directo con los novios
-
-Admin Dashboard (pendiente implementar)
-
-🛠 3.Tecnologías
-Área	Stack
-Frontend	React 18 + Vite	Tailwind CSS	GSAP (animaciones)	Lucide Icons
-Backend	Spring Boot 3	MongoDB	Docker
-Despliegue	Vercel (Front)	Render (Back)	MongoDB Atlas
-Herramientas	Figma (diseño)	Postman (API testing)
-🚀 4.Instalación
-Requisitos previos:
-Node.js ≥18
-
-JDK 17
-
-Docker
-
-Cuentas en Vercel/Render/MongoDB Atlas
-
-Pasos:
-Frontend:
-
-bash
-git clone [repo-url]
+## ⚙️ Instalación
+```bash
+# Frontend
+git clone https://github.com/tu-usuario/web-boda.git
 cd frontend
 npm install
 npm run dev
-Backend:
 
-docker
+# Backend (requiere Docker)
 docker build -t boda-api .
 docker run -p 8080:8080 boda-api
-Variables de entorno:
-Crear .env en frontend:
-
-env
-VITE_API_URL=https://api-web-boda.onrender.com
-📱 5.Uso
-Los invitados acceden a: https://boda-fatima-y-pepe.vercel.app/
-
-Completan el formulario (4 pasos)
-
-Reciben confirmación por email (pendiente implementar)
-
-Los novios consultan confirmaciones en MongoDB Atlas
-
-📚6. Documentación
-Diagramas técnicos:
--Caso de Uso     -Diargama de Clases      -Diagrama entindad relacion MongoDB
--De Pruebas      -Diagrama de despliegue  -Diagrama de flujo y de secuencia
-
-
-Endpoints API
-
-http
-POST /api/invitaciones
-GET /api/invitaciones
-
-🎨 7.Figma
-
-https://www.figma.com/design/9EFxoG1ht5Xg8UGbj8Tlnr/Figma-TFG-WEB_BODA?node-id=0-1&t=IfEMdvmzAJ0MQHJM-1
-
-🎯 8.Conclusión
-Proyecto que combina habilidades técnicas de DAW con un propósito personal emotivo. Desafíos superados:
-
-Integración React-Spring Boot
-
-Animaciones performantes
-
-Despliegue full-stack
-
-📜 9.Licencia
-MIT License © 2024 Fernando Iglesias
-
-📧 10.Contacto
-Autor: Fernando Iglesias Leyva
-Email: feriley8@gmail.com
