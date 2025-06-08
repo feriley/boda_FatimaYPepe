@@ -1,6 +1,8 @@
 # 💍 Web Boda Fátima & Pepe 
 
-![Banner de proyecto](https://via.placeholder.com/1200x400/3d004d/ffffff?text=Elegante+Web+Boda) <!-- Agregar banner real -->
+<div align="center">
+  <img src="https://github.com/feriley/boda_FatimaYPepe/blob/main/assets/banner.jpg?raw=true" width="90%" alt="Banner principal">
+</div>
 
 > Plataforma interactiva para la gestión de invitados en la boda de Fátima y Pepe
 
@@ -25,7 +27,9 @@
 ## ✨ Introducción
 Proyecto especial creado como regalo de boda para mi hermana. Plataforma digital que permite a los invitados:
 
-![Confirmación asistencia](https://via.placeholder.com/400x200/3d004d/ffffff?text=Proceso+4+pasos) <!-- Agregar captura real -->
+<div align="center">
+  <img src="https://github.com/feriley/boda_FatimaYPepe/blob/main/assets/asistencia.jpg?raw=true" width="90%" alt="Asistencia">
+</div>
 
 - ✅ Confirmar asistencia
 - 🍽️ Indicar restricciones alimenticias
@@ -55,8 +59,6 @@ Proyecto especial creado como regalo de boda para mi hermana. Plataforma digital
 - **📬 Contacto directo con novios**
 - **👤 Admin Dashboard** (en desarrollo)
 
-![Vista previa secciones](https://via.placeholder.com/600x300/3d004d/ffffff?text=Secciones+Web) <!-- Agregar collage de pantallas -->
-
 ---
 
 ## 🛠 Tecnologías
@@ -78,8 +80,7 @@ Proyecto especial creado como regalo de boda para mi hermana. Plataforma digital
 ## ⚙️ Instalación
 
 # Frontend
-git clone https://github.com/tu-usuario/web-boda.git
-cd frontend
+git clone https://github.com/feriley/boda_FatimaYPepe
 npm install
 npm run dev
 
@@ -100,13 +101,7 @@ https://boda-fatima-y-pepe.vercel.app/
 
 Flujo de invitado:
 
-Diagram
-Code
-graph TD
-    A[Acceso web] --> B[Formulario 4 pasos]
-    B --> C[Envío confirmación]
-    C --> D[Email de confirmación]
-    D --> E[Base de datos]
+
 📊 Documentación
 https://via.placeholder.com/150/3d004d/ffffff?text=ERD
 https://via.placeholder.com/150/3d004d/ffffff?text=Clases
@@ -117,9 +112,8 @@ Endpoints API:
 Método	Ruta	Función
 POST	/api/invitaciones	Crear confirmación
 GET	/api/invitaciones	Listar confirmaciones
-🎨 Diseño en Figma
-https://via.placeholder.com/600x300/3d004d/ffffff?text=Dise%C3%B1o+Figma
 
+🎨 Diseño en Figma
 Enlace completo:
 https://figma.com/file/9EFxoG1ht5Xg8UGbj8Tlnr
 
