@@ -134,10 +134,13 @@ MIT License © 2024 Fernando Iglesias Leyva
 https://img.shields.io/badge/Licencia-MIT-green.svg
 
 
-Permiso concedido para uso académico y personal.
-Prohibido uso comercial sin autorización.
-📧 Contacto
-Fernando Iglesias Leyva
-https://img.shields.io/badge/feriley8@gmail.com-D14836?logo=gmail
-https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin
-https://img.shields.io/badge/Portfolio-FF5722?logo=google-chrome
+## 📜 Licencia
+**Permiso concedido para uso académico y personal**  
+**Prohibido uso comercial sin autorización**
+
+## 📧 Contacto
+**Fernando Iglesias Leyva**  
+
+[![Email](https://img.shields.io/badge/feriley8@gmail.com-D14836?logo=gmail&style=flat)](mailto:feriley8@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin&style=flat)](https://linkedin.com/in/tu-perfil)
+[![Portfolio](https://img.shields.io/badge/Portfolio-FF5722?logo=google-chrome&style=flat)](https://tu-portfolio.com)
