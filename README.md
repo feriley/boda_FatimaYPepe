@@ -76,7 +76,7 @@ Proyecto especial creado como regalo de boda para mi hermana. Plataforma digital
 ---
 
 ## ⚙️ Instalación
-```bash
+
 # Frontend
 git clone https://github.com/tu-usuario/web-boda.git
 cd frontend
@@ -86,3 +86,64 @@ npm run dev
 # Backend (requiere Docker)
 docker build -t boda-api .
 docker run -p 8080:8080 boda-api
+
+
+
+Variables de entorno:
+
+env
+# .env frontend
+VITE_API_URL=https://api-web-boda.onrender.com
+📱 Uso
+Acceso para invitados:
+https://boda-fatima-y-pepe.vercel.app/
+
+Flujo de invitado:
+
+Diagram
+Code
+graph TD
+    A[Acceso web] --> B[Formulario 4 pasos]
+    B --> C[Envío confirmación]
+    C --> D[Email de confirmación]
+    D --> E[Base de datos]
+📊 Documentación
+https://via.placeholder.com/150/3d004d/ffffff?text=ERD
+https://via.placeholder.com/150/3d004d/ffffff?text=Clases
+https://via.placeholder.com/150/3d004d/ffffff?text=Despliegue
+
+Endpoints API:
+
+Método	Ruta	Función
+POST	/api/invitaciones	Crear confirmación
+GET	/api/invitaciones	Listar confirmaciones
+🎨 Diseño en Figma
+https://via.placeholder.com/600x300/3d004d/ffffff?text=Dise%C3%B1o+Figma
+
+Enlace completo:
+https://figma.com/file/9EFxoG1ht5Xg8UGbj8Tlnr
+
+✅ Conclusión
+Logros técnicos:
+
+Integración React-Spring Boot 🔄
+
+Animaciones optimizadas con GSAP ✨
+
+Despliegue full-stack en Vercel + Render ☁️
+
+Impacto personal:
+Regalo digital con significado emocional que fusiona habilidades técnicas con celebración familiar.
+
+📜 Licencia
+MIT License © 2024 Fernando Iglesias Leyva
+https://img.shields.io/badge/Licencia-MIT-green.svg
+
+
+Permiso concedido para uso académico y personal.
+Prohibido uso comercial sin autorización.
+📧 Contacto
+Fernando Iglesias Leyva
+https://img.shields.io/badge/feriley8@gmail.com-D14836?logo=gmail
+https://img.shields.io/badge/LinkedIn-0077B5?logo=linkedin
+https://img.shields.io/badge/Portfolio-FF5722?logo=google-chrome
