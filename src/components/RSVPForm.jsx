@@ -10,6 +10,7 @@ export default function RSVPForm() {
     acompañanteNombre: "",
     acompañanteAlergias: "",
     autobus: "",
+    autobusTipo: "", // Nueva propiedad para el tipo de autobús
     cancionFavorita: "", 
   });
 
@@ -31,15 +32,13 @@ export default function RSVPForm() {
   const nextStep = () => {
     const newErrors = {};
     
-    // Validar campos según el paso actual
     if (step === 1) {
       if (!formData.nombre.trim()) newErrors.nombre = 'Nombre es obligatorio';
       if (!formData.asistencia) newErrors.asistencia = 'Por favor selecciona una opción';
-      if (!formData.telefono.trim()) newErrors.telefono = 'Teléfono es obligatorio';
     }
     
-    if (step === 3 && !formData.autobus) {
-      newErrors.autobus = 'Por favor selecciona una opción';
+    if (step === 3 && formData.autobus === "sí" && !formData.autobusTipo) {
+      newErrors.autobusTipo = 'Por favor selecciona una opción';
     }
     
     if (Object.keys(newErrors).length > 0) {
@@ -49,69 +48,69 @@ export default function RSVPForm() {
     
     setStep((prev) => Math.min(prev + 1, 4));
   };
-  
+
   const prevStep = () => setStep((prev) => Math.max(prev - 1, 1));
 
-  const steps = ["Invitado", "Acompañante", "Autobús", "Canción"]; 
+  const steps = ["Invitado", "Acompañante", "Transporte", "Canción"];
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
-  setSubmitting(true);
-  setSubmitError(null);
-  setSubmitSuccess(false);
+    e.preventDefault();
+    setSubmitting(true);
+    setSubmitError(null);
+    setSubmitSuccess(false);
 
-  const mappedData = {
-    nombreCompleto: formData.nombre,
-    telefono: formData.telefono,
-    confirmacion: formData.asistencia,
-    restriccionesAlimenticias: formData.infoAdicional,
-    acompañante: formData.acompañanteNombre,
-    alergiasAcompañante: formData.acompañanteAlergias,
-    necesitaAutobus: formData.autobus,
-    cancionFavorita: formData.cancionFavorita,
-  };
+    const mappedData = {
+      nombreCompleto: formData.nombre,
+      telefono: formData.telefono,
+      confirmacion: formData.asistencia,
+      restriccionesAlimenticias: formData.infoAdicional,
+      acompañante: formData.acompañanteNombre,
+      alergiasAcompañante: formData.acompañanteAlergias,
+      necesitaAutobus: formData.autobus === "sí" ? formData.autobusTipo : "no",
+      cancionFavorita: formData.cancionFavorita,
+    };
 
-  const apiBaseUrl =
-    import.meta.env.MODE === "development"
+    const apiBaseUrl = import.meta.env.MODE === "development"
       ? ""
       : import.meta.env.VITE_API_URL;
 
-  try {
-    const res = await fetch(`${apiBaseUrl}/api/invitaciones`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(mappedData),
-    });
+    try {
+      const res = await fetch(`${apiBaseUrl}/api/invitaciones`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(mappedData),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      throw new Error(data.error || "Error en el servidor");
+      if (!res.ok) {
+        throw new Error(data.error || "Error en el servidor");
+      }
+
+      setSubmitSuccess(true);
+      setFormData({
+        nombre: "",
+        asistencia: "",
+        telefono: "",
+        infoAdicional: "",
+        acompañanteNombre: "",
+        acompañanteAlergias: "",
+        autobus: "",
+        autobusTipo: "",
+        cancionFavorita: "",
+      });
+      setStep(1);
+    } catch (error) {
+      setSubmitError(error.message || "Error de conexión. Intenta más tarde.");
+    } finally {
+      setSubmitting(false);
     }
+  };
 
-    setSubmitSuccess(true);
-    setFormData({
-      nombre: "",
-      asistencia: "",
-      telefono: "",
-      infoAdicional: "",
-      acompañanteNombre: "",
-      acompañanteAlergias: "",
-      autobus: "",
-      cancionFavorita: "",
-    });
-    setStep(1);
-  } catch (error) {
-    setSubmitError(error.message || "Error de conexión. Intenta más tarde.");
-  } finally {
-    setSubmitting(false);
-  }
-};
   return (
-    <section 
-      className="py-16 px-4 min-h-screen flex items-center justify-center"
+    <section className="py-16 px-4 min-h-screen flex items-center justify-center"
       style={{
-        backgroundImage: "url('/img/fondo_cuentaAtras.jfif')",
+        backgroundImage: "url('/img/fondo3final.jpeg')",
         backgroundSize: "cover",
         backgroundPosition: "center"
       }}
@@ -138,7 +137,7 @@ export default function RSVPForm() {
           </div>
         )}
 
-        {/* STEP INDICATOR - Actualizado con nuevos colores */}
+        {/* STEP INDICATOR */}
         <div className="flex justify-between items-start mb-10 relative">
           <div className="absolute top-4 left-0 right-0 h-1 bg-gray-200 -z-10 mx-8"></div>
           
@@ -212,20 +211,16 @@ export default function RSVPForm() {
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Teléfono*
+                  Número de móvil (opcional)
                 </label>
                 <input
                   type="tel"
                   name="telefono"
-                  placeholder="Ej: 612345678"
-                  required
+                  placeholder="Ej: 612345678 (opcional)"
                   value={formData.telefono}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 rounded-lg bg-gray-50 ${
-                    errors.telefono ? 'border border-red-500' : 'border-none'
-                  } focus:outline-none focus:ring-2 focus:ring-teal-300`}
+                  className="w-full px-4 py-3 rounded-lg bg-gray-50 border-none focus:outline-none focus:ring-2 focus:ring-teal-300"
                 />
-                {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>}
               </div>
 
               <div>
@@ -324,15 +319,12 @@ export default function RSVPForm() {
                 <h3 className="text-lg font-medium text-gray-800 mb-3">
                   Transporte a la boda
                 </h3>
-                <p className="text-sm text-gray-600 mb-4">
-                  Ofrecemos autobús desde el centro de la ciudad para facilitar vuestro desplazamiento
-                </p>
                 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     ¿Necesitas autobús?*
                   </label>
-                  <div className="grid grid-cols-2 gap-3">
+                  <div className="grid grid-cols-2 gap-3 mb-4">
                     {["sí", "no"].map((option) => (
                       <label 
                         key={option}
@@ -349,11 +341,41 @@ export default function RSVPForm() {
                           onChange={handleChange}
                           className="hidden"
                         />
-                        {option === "sí" ? "Sí, necesito" : "No, gracias"}
+                        {option === "sí" ? "Sí" : "No"}
                       </label>
                     ))}
                   </div>
-                  {errors.autobus && <p className="text-red-500 text-sm mt-2">{errors.autobus}</p>}
+                  
+                  {formData.autobus === "sí" && (
+                    <div className="mt-4">
+                      <label className="block text-sm font-medium text-gray-700 mb-1">
+                        Tipo de desplazamiento*
+                      </label>
+                      <div className="grid grid-cols-3 gap-3">
+                        {["ida", "vuelta", "idayvuelta"].map((option) => (
+                          <label 
+                            key={option}
+                            className={`flex items-center justify-center p-3 rounded-lg border cursor-pointer transition-all bg-gray-50 text-sm ${
+                              formData.autobusTipo === option 
+                                ? 'border-teal-500 bg-teal-100 text-teal-700 font-medium' 
+                                : 'border-gray-300 hover:border-teal-300'
+                            }`}>
+                            <input
+                              type="radio"
+                              name="autobusTipo"
+                              value={option}
+                              checked={formData.autobusTipo === option}
+                              onChange={handleChange}
+                              className="hidden"
+                            />
+                            {option === "ida" ? "Ida" : 
+                             option === "vuelta" ? "Vuelta" : "Ida y Vuelta"}
+                          </label>
+                        ))}
+                      </div>
+                      {errors.autobusTipo && <p className="text-red-500 text-sm mt-2">{errors.autobusTipo}</p>}
+                    </div>
+                  )}
                 </div>
               </div>
 

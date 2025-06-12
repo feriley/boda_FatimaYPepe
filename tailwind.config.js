@@ -6,7 +6,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        homemade: ["'Homemade Apple'", "cursive"],
+        homemade: ['Homemade Apple', 'cursive'],
+        sunday: ['Dancing Script', 'cursive'] // Cambiado a Dancing Script
       },
       colors: {
         primaryText: "#54514a",
