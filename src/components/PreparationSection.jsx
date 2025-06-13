@@ -162,7 +162,7 @@ export default function PreparationSection() {
   className="relative z-[100] w-full max-w-2xl mx-auto"
 >
   <img
-    src="/img/eventosfinal1.png"
+    src="/public/img/Pacificofinal.png"
     alt="Eventos del día"
     className="block w-full h-auto"
     onError={(e) => {
